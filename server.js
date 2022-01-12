@@ -16,7 +16,7 @@ app.use(cors())
 app.use('/', routes)
 
 app.get('/', (req, res) => {
-  res.json('hello world')
+  res.json('hello there')
 })
 
 app.listen(port, ()=>{
