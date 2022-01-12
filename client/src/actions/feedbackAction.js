@@ -2,22 +2,37 @@ import axios from 'axios'
 import { GET_FEEDBACK_SUCCESS } from '../constants/constants'
 
 export const getFeedbacks = () => async (dispatch) => {
-  const {data} = await axios.get('/get')
-
-  dispatch({
-    type: GET_FEEDBACK_SUCCESS,
-    payload: data
-  })
+  try {
+    const {data} = await axios.get('/get')
+  
+    dispatch({
+      type: GET_FEEDBACK_SUCCESS,
+      payload: data
+    })
+    
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 export const postFeedback = (text, rating) => async (dispatch) => {
-
-  await axios.post('/post', {
-    text: text,
-    rating: rating,
-  })
+  try {
+    
+    await axios.post('/post', {
+      text: text,
+      rating: rating,
+    })
+  } catch (error) {
+    
+    console.log(error)
+  }
 }
 
 export const deleteFeedback = (id) => async (dispatch) => {
-  await axios.delete(`/delete/${id}`)
+  try {
+    
+    await axios.delete(`/delete/${id}`)
+  } catch (error) {
+    console.log(error)
+  }
 }
