@@ -9,7 +9,7 @@ export const getFeedbacks = () => async (dispatch) => {
       type: GET_FEEDBACK_SUCCESS,
       payload: data
     })
-    
+    console.log(data)
   } catch (error) {
     console.log(error)
   }
